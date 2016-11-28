@@ -1,0 +1,35 @@
+ <h1 class="text-center"> <span class="banner-title"> <%= @bike.gender %> <%= @bike.category %> bike </span> </h1>
+
+ <div class="bike-banner" style="background-image: url( <%= image_path get_bike_banner(@bike) %>);">
+   <div class="card-price-show"> <%= "DKK #{@bike.price}" %> </div>
+
+
+   <div class="banner-content">
+    <%= link_to "Rent this bike", new_bike_booking_path(@bike), class:"btn btn-primary btn-lg position-on-bike" %>
+    <br>
+    <div class="card-paragraph">
+      <div class="banner-paragraph">
+        <p><%= "Bike Size = #{@bike.size} Gender = #{@bike.gender} Category = #{@bike.category} Gears = #{@bike.gears} Condition = #{@bike.condition} Price = #{@bike.price}" %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<br>
+<br>
+
+<div class="container">
+  <div class="card-show text-center">
+    <% avatar_url = @bike.user.facebook_picture_url || "http://placehold.it/30x30" %>
+    <%= image_tag avatar_url, class: "avatar-large" %>
+    <br>
+    <br>
+    <h1><%= "#{@bike.user.first_name} #{@bike.user.last_name}" %></h1>
+    <h2><%= "#{@bike.user.address}" %></h2>
+    <h3><%= "#{@bike.user.rating}" %></h3>
+    <p><%= "Contact:" %></p>
+    <p><%= "Phone: #{@bike.user.phone_number}" %></p>
+    <p><%= "Email: #{@bike.user.email}" %></p>
+  </div>
+</div>
+
